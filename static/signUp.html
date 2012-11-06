@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>	
+        <meta charset="UTF-8">	
+        <title>SignUp</title>
+    	<link rel="icon" href="/static/favicon/knowre.ico" type="image/x-icon">
+    	<script src="/static/jquery.min.js"></script>
+        <style>
+        </style>
+
+        <script type="text/javascript">
+
+            $(function(){
+<<<<<<< HEAD
+            
+                $('#signUpVerify').show();
+                    $.get('/signUpVerify',
+                            function(res){
+                                console.log(res);
+                                var step = $.parseJSON(res)['statusCode'];
+                                var email = $.parseJSON(res)['email'];
+=======
+
+                $('#signUpVerify').show();
+                
+                    $.get('/signUpVerify',
+                            function(res){
+                                console.log(res);
+                                var step = res['statusCode'];
+                                var email = res['email'];
+>>>>>>> origin/SignUp
+                                $('#signUpVerify').hide();
+                                $('#step'+step).show();
+                                $('#email').val(email);
+                                if(step == 3){
+                                    signUpRequestStep3();
+                                } else if(step ==4) {
+                                    signUpRequestStep4();
+                                };
+                    });
+
+
+
+                $('#step1Sub').bind('click',function(){
+                   
+                    $.post('/signUpSubmitStep1',
+                            {   userType:$('input[name=userType]:checked').val(),
+                                lastName:$('#lastName').val(),
+                                firstName:$('#firstName').val(),
+                                password1:$('#password1').val(),
+                                password2:$('#password2').val()
+                            },function(res){
+                                console.log(res);
+<<<<<<< HEAD
+                                var statusCode = $.parseJSON(res)['statusCode'];
+=======
+                                var statusCode = res['statusCode'];
+>>>>>>> origin/SignUp
+                                if(statusCode == 0) {
+                                    $('#step1').hide();
+                                    $('#step2').show();
+                                }
+                            }
+                    );
+
+                });
+
+                $('input[name=curriculum]').bind('click',function(){
+                   
+                    $.post('/signUpRequestStep2',
+                            {   curriculum:$('input[name=curriculum]:checked').val(),
+                            },function(res){
+
+<<<<<<< HEAD
+                                var subject = $.parseJSON(res);   
+=======
+                                var subject = res;   
+>>>>>>> origin/SignUp
+                                for(var i=0;i<6;i++){
+                                    $('#chap'+i).html(subject[i]);
+                                };
+
+                            }
+                    );
+
+                });
+
+               $('#step2Sub').bind('click',function(){
+
+                    var subject = [];
+                    var subject_len = $('input[name=chapter]:checked').length;
+                    for(var i=0;i<subject_len;i++){
+
+                        subject.push($('input[name=chapter]:checked')[i].value);
+                    };
+                   
+                    $.post('/signUpSubmitStep2',
+                            {   subject:subject,
+                            },function(res){
+                                console.log(res);
+<<<<<<< HEAD
+                                var statusCode = $.parseJSON(res)['statusCode'];
+=======
+                                var statusCode = res['statusCode'];
+>>>>>>> origin/SignUp
+                                if(statusCode == 0) {
+                                    $('#step2').hide();
+                                    $('#step3').show();
+                                    signUpRequestStep3();
+                                }
+                            }
+                    );
+                });
+
+
+
+                var signUpRequestStep3 = function(){
+                    $.get('/getProblem',function(res){
+                        console.log(res);
+<<<<<<< HEAD
+                        var result = $.parseJSON(res);
+=======
+                        var result = res;
+<<<<<<< HEAD
+>>>>>>> origin/SignUp
+                        $('#probId').html(result.probId);
+                        $('#probQues').html(result.question);
+                        signUpSubmitStep3();
+=======
+                        $('#probSeq').html(result.probSeq);
+                        $('#probId').html(result.data.no);
+                        $('#analysis').html(result.analysis);
+                        $('#probQues').html(result.data.question);
+                        //signUpSubmitStep3();
+>>>>>>> origin/SignUp
+                    });
+                };
+
+                //var signUpSubmitStep3 = function(){
+                    $('#step3Sub').bind('click',function(){
+<<<<<<< HEAD
+                        $.post('./signUpSubmitStep3',
+<<<<<<< HEAD
+                            {   
+=======
+=======
+                        $.post('./submitAnswer',
+>>>>>>> origin/SignUp
+                            {  
+>>>>>>> origin/SignUp
+                                answer:$('#answer').val(),
+                                probId:$('#probId').html(),
+                                analysis:$('#analysis').html()
+
+                            },function(res){
+                                console.log(res);
+                                if(res.isComplete){
+                                    $('#step3').hide();
+                                    $('#step4').show();
+                                    signUpRequestStep4();
+                                } else {
+                                    signUpRequestStep3();
+                                };
+
+                            }
+                        );
+                    });
+                //};
+
+                var signUpRequestStep4 = function(){
+                    $.get('/signUpRequestStep4',function(res){
+                        console.log(res);
+                        $('#result').html(res);
+                    });
+                };
+
+                $('#step4Sub').bind('click',function(){
+                    $.post('./signUpSubmitStep4',
+                        {   
+                            goal:$('input[name=Goal]:checked').val(),
+                            point:$('input[name=startPoint]:checked').val()
+                        },function(res){
+                            console.log(res); 
+                            $('#step4').hide();
+                            $('#step5').show();
+                        }
+                    );
+                });
+
+            });
+              
+        </script>
+
+        </head>
+
+        <body>
+       
+             <section style='display:none;'id='signUpVerify'>
+                signUpVerifying....
+             </section>
+
+             <section style='display:none;' id='step1'> 
+                <h1>step1</h1>
+                <div id="step1Info">   
+                    <input type="radio" name="userType" value="student">Student<br/></input>
+                    <input type="radio" name="userType" value="teacher">Teacher<br/></input>
+                    <label for="name">Name:</label> 
+                    <input type="text"  id="lastName"></input>
+                    <input type="text"  id="firstName"></input>
+                    <br/><br/>
+                    <label for="email">Email:</label> 
+                    <input type="email" id="email" readonly="readonly"></input>
+                    <br/><br/>
+                    <label for="password">Password:</label> 
+                    <input type="password" id="password1"></input>
+                    <input type="password" id="password2"></input>
+                    <button id="step1Sub">Next</button>
+                </div>     
+             </section>
+
+             <section style='display:none;' id='step2'>
+                <h1>step2</h2>
+                <div id="step2Info">
+                    <h2>Curriculum Selection</h2>
+                    <input type="radio" name="curriculum" value="PreAlg">Pre Algebra<br/></input>
+                    <input type="radio" name="curriculum" value="Alg1">Algebra1<br/></input>
+                    <input type="radio" name="curriculum" value="Alg2">Algebra2<br/></input>
+                    <input type="radio" name="curriculum" value="Geo">Geometry<br/></input>
+                    <input type="radio" name="curriculum" value="PreCal">Pre Calculus<br/></input>
+                   
+                    <br/><br/><br/> 
+                    
+                    <h2>Chapter Selection</h2>
+                    <input type="checkbox" name="chapter" value="chap0"><div id="chap0"></div><br/></input>
+                    <input type="checkbox" name="chapter" value="chap1"><div id="chap1"></div><br/></input>
+                    <input type="checkbox" name="chapter" value="chap2"><div id="chap2"></div><br/></input>
+                    <input type="checkbox" name="chapter" value="chap3"><div id="chap3"></div><br/></input>
+                    <input type="checkbox" name="chapter" value="chap4"><div id="chap4"></div><br/></input>
+                    <input type="checkbox" name="chapter" value="chap5"><div id="chap5"></div><br/></input>
+                    
+                    <button id="step2Sub">Next</button>
+                
+                </div>             
+             
+             </section>
+             <section style='display:none;' id='step3'>
+
+                <h1>step3</h1>
+                <div id="step3Info">
+                    Problem Seq: <p id="probSeq"></p>
+                    Problem ID: <p id="probId"></p>
+                    Analyzed: <p id="analysis"></p>
+                    Question:<p id="probQues"></p>
+
+                    <label for="answer">Answer: <input type="text" id="answer"></input></label>
+                    <button id="step3Sub">Submit</button>
+                </div>
+             
+             </section>
+             <section style='display:none;' id='step4'>
+                <h1>step4</h1>
+                <div id="step4Info">
+                    <section>
+                        <h2>Result of Digonosit Test</h2>
+                        <div id="result"></div>
+                    </section>
+
+                    <section id="setting">
+                        <h2>Setting</h2>
+              
+                        <div> 
+                            <h3>Achievement Goal</h3>
+                            <input type="radio" name="Goal" value="Perfect">Perfect<br/></input>
+                            <input type="radio" name="Goal" value="High">High<br/></input>
+                            <input type="radio" name="Goal" value="Medium">Medium<br/></input>     
+                            <input type="radio" name="Goal" value="Low">Low<br/></input> 
+                        </div>
+                        <div>
+                            <h3>Starting Point</h3>
+                            <input type="radio" name="startPoint" value="Chap6">Chap6<br/></input>
+                            <input type="radio" name="startPoint" value="Chap1">Chap1<br/></input>
+                            <input type="radio" name="startPoint" value="Manual">Manual<br/></input>
+                            <button id="step4Sub">Submit</button>
+                        </div>
+                    
+                    
+                    </seciton>
+                </div>
+     
+             </section>
+
+             <section style='display:none;' id='step5'>
+
+                SignUp Complete!!!
+             </section>
+        </body>
+</html>

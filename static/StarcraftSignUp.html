@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KnowRe</title>
+	<link rel="icon" href="/static/favicon/knowre.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/mathquill.css" type="text/css">
+	<link rel="stylesheet" href="/static/Starcraft.css" type="text/css">
+	<script src="/static/jquery.min.js"></script>
+	<script src="/static/mathquill.min.js"></script>
+	<script src="/static/Starcraft.js"></script>
+	<style type="text/css" id="Devourer">
+	</style>
+</head>
+
+<body>
+	<header id="queenHeader" class="mainheader">
+		<div class="resizing">
+			<a href="#" class="logo" data-component="Queen" data-src-normal="logo.png">&nbsp;</a>
+			<h1 class="signup">Sign Up</h1>
+			<ul class="step">
+				<li class="stepprogress">Step 1.</li>
+				<li class="stepprogress">Step 2.</li>
+				<li class="stepprogress">Step 3.</li>
+				<li class="stepprogress">Step 4.</li>
+			</ul>
+		</div>
+	</header>
+
+	<div id="queenStep1" class="container">
+		<h1 class="information">Fill in the basic information</h1>
+		<section class="buttonbox">
+			<div class="studentbtn normal" data-component="Queen" data-src-normal="btnStudentNormal.png" data-src-hover="btnStudentHover.png" data-src-active="btnStudentActive.png">&nbsp;</div>
+			<div class="studentbtn selected" data-component="Queen" data-src-normal="btnStudentActive.png">&nbsp;</div>
+			<span>or</span>
+			<div class="teacherbtn normal" data-component="Queen" data-src-normal="btnTeacherNormal.png" data-src-hover="btnTeacherHover.png" data-src-active="btnTeacherActive.png">&nbsp;</div>
+			<div class="teacherbtn selected" data-component="Queen" data-src-normal="btnTeacherActive.png">&nbsp;</div>
+			<span class="question01">Are you students or teacher?</span>
+		</section>
+		<section class="login">
+			<form class="loginform">
+				<label for="queenStep1Lastname" class="lgn icon1" data-component="Queen" data-src-normal="iconName.png">&nbsp;</label>
+				<input type="text" name="lastname" class="lastname" id="queenStep1Lastname" data-realtype="text" data-placeholder="Last name">
+				<input type="text" name="firstname" class="firstname" id="queenStep1Firstname" data-realtype="text" data-placeholder="First name">
+
+				<label for="queenStep1Email" class="lgn icon2" data-component="Queen" data-src-normal="iconMail.png">&nbsp;</label>
+				<input type="email" name="email" class="email" id="queenStep1Email" disabled="disabled">
+
+				<label for="queenStep1Password1" class="lgn icon3" data-component="Queen" data-src-normal="iconPW.png">&nbsp;</label>
+				<input type="text" name="password" class="password1" id="queenStep1Password1" data-realtype="password" data-placeholder="Password">
+				<input type="text" name="password2" class="password2" id="queenStep1Password2" data-realtype="password" data-placeholder="Verify Password">
+				<div class="passIcon confirmIcon" data-component="Queen" data-src-normal="iconV.png">&nbsp;</div>
+				<div class="passIcon wrongIcon" data-component="Queen" data-src-normal="iconX.png">&nbsp;</div>
+			</form>
+		</section>
+		<button class="rightarrow disabled" data-component="Queen" data-src-normal="btnNextDisabled.png"></button>
+		<button class="rightarrow enabled" data-component="Queen" data-src-normal="btnNextNormal.png" data-src-hover="btnNextHover.png" data-src-active="btnNextActive.png"></button>
+		<div class="tooltip">
+			This is Next Step Buttoon.<br>
+			Our Service has<br>
+			eidetic Arrow<br>
+			Button
+			<div class="boxArrowShadow"></div>
+			<div class="boxArrow" data-component="Queen" data-src-normal="boxArrow.png"></div>
+		</div>
+	</div>
+
+	<div id="queenStep2" class="container">
+		<section class="minicontainer">
+			<article class="curnamelist">
+				<h1 class="curriculum">Choose the curriculum</h1>
+				<ul class="curmenu">
+						<li class="fbtn fbtn_1">
+							<span class="check" data-component="Queen" data-src-normal="iconCheckNormal.png" data-src-hover="iconCheckHover.png" data-src-active="iconCheckActive.png" data-event-target="#queenStep2 .fbtn_1">&nbsp;</span>
+							<span class="fbtntext">Pre Algebra</span>
+						</li>
+						<li class="fbtn fbtn_2">
+							<span class="check" data-component="Queen" data-src-normal="iconCheckNormal.png" data-src-hover="iconCheckHover.png" data-src-active="iconCheckActive.png" data-event-target="#queenStep2 .fbtn_2">&nbsp;</span>
+							<span class="fbtntext">Algebra 1</span>
+						</li>
+						<li class="fbtn fbtn_3">
+							<span class="check" data-component="Queen" data-src-normal="iconCheckNormal.png" data-src-hover="iconCheckHover.png" data-src-active="iconCheckActive.png" data-event-target="#queenStep2 .fbtn_3">&nbsp;</span>
+							<span class="fbtntext">Algebra 2</span>
+						</li>
+						<li class="fbtn fbtn_4">
+							<span class="check" data-component="Queen" data-src-normal="iconCheckNormal.png" data-src-hover="iconCheckHover.png" data-src-active="iconCheckActive.png" data-event-target="#queenStep2 .fbtn_4">&nbsp;</span>
+							<span class="fbtntext">Geometry</span>
+						</li>
+						<li class="fbtn fbtn_5">
+							<span class="check" data-component="Queen" data-src-normal="iconCheckNormal.png" data-src-hover="iconCheckHover.png" data-src-active="iconCheckActive.png" data-event-target="#queenStep2 .fbtn_5">&nbsp;</span>
+							<span class="fbtntext">Pre Calculus</span>
+						</li>
+  		 </ul>
+  		 <ul class="curmenu shadow">
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  		 </ul>
+  		 <div class="groupline">
+  			<span class="group start">&nbsp;</span>
+  			<span class="group mclass">&nbsp;</span>
+  			<span class="group end">&nbsp;</span>
+  			<span class="group arrow">&nbsp;</span>
+  		 </div>
+  	   </article>
+  	   <article class="cursub">
+  	   	<h1>Check the Subject Already Know</h1>
+  		 <p class="choice"><span class="check">&nbsp;</span><span class="fbtntext">I dclassn't Study Algebra 1 yet</span></p>
+  		 <p class="choiceshadow">&nbsp;</p>
+  		 <div class="dvclasser">&nbsp;</div><span class="divclassertext">or</span><div class="dvclasser">&nbsp;</div>
+  		  <ul class="subjectmenu">
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Linear Equation</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Linear Equation</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Linear Equation</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Quadratic Function with<br>Test text test Ipsim</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Linear Equation</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Linear Equation</span></li>
+  		  </ul>
+  		  <ul class="subjectmenu shadow">
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  		  </ul>
+  		  <ul class="subjectmenu no2">
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Quadratic Function with<br>Test text test Ipsim</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Quadratic Function with<br>Test text test Ipsim</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Quadratic Function with<br>Test text test Ipsim</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Linear Equation</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Quadratic Function with<br>Test text test Ipsim</span></li>
+  			<li class="fbtn2"><span class="check">&nbsp;</span><span class="subjecttext">Quadratic Function with<br>Test text test Ipsim</span></li>
+  		  </ul>
+  		  <ul class="subjectmenu shadow2">
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  			<li class="bbtn">&nbsp;</li>
+  		  </ul>
+  	   </article>
+  	  </section>
+  	  <input type="image" src="img/bt_next_fc.png" alt="sibmit" class="rightarrow">
+
+	</div>
+
+	<script>
+		var debug = true,
+			mothership = new Mothership(debug, function() {
+				this.devourer = new Devourer("Queen", debug, this);
+				this.queen = new Queen();
+			});
+	</script>
+</body>
+
+</html>
+

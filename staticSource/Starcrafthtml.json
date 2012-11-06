@@ -1,0 +1,22 @@
+[
+	{
+		"name":"header",
+		"sub":[
+			"devHeader.html"
+		]
+	},
+	{
+		"name":"body",
+		"sub":[
+			"body.html"
+		]
+
+	},
+	{
+		"name":"footer",
+		"sub":[
+			"footer.html"
+		]
+
+	}
+]

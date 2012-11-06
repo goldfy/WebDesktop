@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KnowRe</title>
+	<link rel="icon" href="/static/favicon/knowre.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/mathquill.css" type="text/css">
+	<link rel="stylesheet" href="/static/Starcraft.css" type="text/css">
+	<script src="/static/jquery.min.js"></script>
+	<script src="/static/mathquill.min.js"></script>
+	<script src="/static/Starcraft.js"></script>
+	<style type="text/css" id="Devourer">
+	</style>
+</head>
+
+<body>
+	<section id="SCV">
+		<header>
+			<div class="content">
+				<section class="logoSection">
+					<img class="logo" data-component="SCV" data-src="logo.png" />
+					<span class="betaSign">BETA</span>
+				</section>
+				<section class="loginSection">
+					<div class="topRow">
+						<input type="text" data-realtype="text" data-placeholder="e-mail" />
+						<input type="text" data-realtype="password" data-placeholder="Password" />
+						<button class="loginButton">Login</button>
+						<span class="buttonOr">or</span>
+						<button class="fbButton">
+							<img data-component="SCV" data-src="fbButtonIcon.png" />
+							<div class="vLine"></div>
+							<span>Login</span>
+						</button>
+					</div>
+					<div class="bottomRow">
+						<input id="rememberButton" type="checkbox" />
+						<label for="rememberButton" class="displayLabel">
+							<img class="buttonCheck" data-component="SCV" data-src="buttonCheck.png" />
+						</label>
+						<label for="rememberButton" class="realLabel">Remember me</label>
+						<a>Forgot password</a>
+					</div>
+				</section>
+			</div>
+		</header>
+		<section class="body">
+			<div class="content">
+				<section class="top">
+					<h1>
+						Neque porro quisquam est quia dolor sit amet, consectetur, adipisci velit
+					</h1>
+					<h2>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque neque sit amet nisl laoreet non placerat turpis interdum. Quisque lorem est. amet nisl laoreet
+					</h2>
+					<section class="request">
+						<button class="requestButton">Request Invitation</button>
+						<div class="requestInput">
+							<div class="balloonEndShadow"></div>
+							<div class="balloonEnd"></div>
+							<input type="text" data-realtype="text" data-placeholder="e-mail" />
+							<button class="reqButton">Request</button>
+						</div>
+					</section>
+					<ul class="forEveryone">
+						<li class="forStudents">
+							<div class="pic" style="background-color: red;"></div>
+							<div class="desc">For Students</div>
+						</li>
+						<li class="forTeachers">
+							<div class="pic" style="background-color: blue;"></div>
+							<div class="desc">For Teachers</div>
+						</li>
+						<li class="forParents">
+							<div class="pic" style="background-color: yellow;"></div>
+							<div class="desc">For Parents</div>
+						</li>
+					</ul>
+				</section>
+				<div class="horLine"></div>
+				<section class="bottom">
+					<ul class="sns">
+						<li class="twitter">
+							<button class="buttonTw" data-component="SCV" data-src-normal="buttonTwNormal.png" data-src-hover="buttonTwHover.png"></button>
+							<section class="desc">
+								<em>Twitter</em><br /><span>@knowremath</span>
+							</section>
+						</li>
+						<li class="facebook">
+							<button class="buttonFb" data-component="SCV" data-src-normal="buttonFbNormal.png" data-src-hover="buttonFbHover.png"></button>
+							<section class="desc">
+								<em>Facebook</em><br /><span>/knowre</span>
+							</section>
+						</li>
+					</ul>
+					<div class="space"></div>
+					<ul class="press">
+						<li><img data-component="SCV" data-src="press01.png" /></li>
+						<li><img data-component="SCV" data-src="press02.png" /></li>
+						<li><img data-component="SCV" data-src="press03.png" /></li>
+						<li><img data-component="SCV" data-src="press04.png" /></li>
+					</ul>
+				</section>
+			</div>
+		</section>
+		<footer>
+			<div class="content">
+				<img data-component="SCV" data-src="footerLogo.png" />
+				<nav class="menu">
+					<ul class="menu">
+						<li class="menu">
+							<span>Features</span>
+							<ul class="subMenu">
+								<li>For Students</li>
+								<li>For Teacher</li>
+								<li>For Parents</li>
+							</ul>
+						</li>
+						<li class="menu">
+							<span>About Us</span>
+							<ul class="subMenu">
+								<li>Company</li>
+								<li>Team</li>
+								<li>Jobs</li>
+								<li>Advisors</li>
+							</ul>
+						</li>
+						<li class="menu">
+							<span>Blog</span>
+						</li>
+						<li class="menu">
+							<span>Contact</span>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</footer>
+	</section>
+	<script>
+		var debug = true,
+			mothership = new Mothership(debug, function() {
+				this.devourer = new Devourer("SCV", debug, this);
+				this.scv = new SCV();
+			});
+	</script>
+</body>
+
+</html>
+

@@ -1,0 +1,47 @@
+[
+	{
+		"name": "Mothership",
+		"sub": [
+		]
+	},
+	{
+		"name": "Medic",
+		"sub": [
+		]
+	},
+	{
+		"name": "Defiler",
+		"sub": [
+		]
+	},
+	{
+		"name": "Devourer",
+		"sub": [
+		]
+	},
+	{
+		"name": "SCV",
+		"sub": [
+		]
+	},
+	{
+		"name": "SiegeTank",
+		"sub": [
+		]
+	},
+	{
+		"name": "Queen",
+		"sub": [
+		]
+	},
+	{
+		"name": "Shuttle",
+		"sub": [
+		]
+	},
+	{
+		"name": "Corsair",
+		"sub": [
+		]
+	}
+]

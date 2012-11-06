@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>	
+        <meta charset="UTF-8">	
+        <title>Send Invitation</title>
+    	<link rel="icon" href="/static/favicon/knowre.ico" type="image/x-icon">
+    	<script src="/static/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            $(function(){
+                $.get('/invitation/info',function(data){
+                   makeTable(data); 
+                });
+                var sendInvitation = function(email){
+                    $.post('/sendInvitation',
+                            {email: email},
+                            function(res){
+                                console.log(res);
+                            }
+                    );
+                };
+
+                var makeTable = function(data){
+                    var table = $('<table>');
+                    var row_length = data.length;
+                    table.appendTo($('body'));
+                    $('<thead>').appendTo(table);
+                    $('<tr>').attr('id','fieldName').appendTo($('thead'));
+
+
+                    $('<td>').appendTo($('#fieldName')).text('Email Address');
+                    $('<td>').appendTo($('#fieldName')).text('isInvited');
+                    $('<td>').appendTo($('#fieldName')).text('Select');
+
+
+                    for (var i=0; i<row_length; i++){
+                        $('<tr>').attr('id','user'+(i+1)).appendTo(table);
+                        $('<td>').appendTo($('#user'+(i+1))).attr('class','email').text(data[i]['email']);
+                        $('<td>').appendTo($('#user'+(i+1))).text(data[i]['isInvited']);
+                        $('<td>').attr('id','button'+(i+1)).appendTo($('#user'+(i+1)));
+                        if(!data[i]['isInvited']) $('<button>Send Invitation</button>').appendTo($('#button'+(i+1)));
+                        else $('#button'+(i+1)).text('Sent Already');
+                    }
+                    $('td').css({'border' : '1px solid black', 'text-align' : 'center'});
+                
+                $('button').bind('click',function(){
+                   var num = $(this).parents().attr('id');
+                   num = num.slice(6);
+                   var email = $('#user'+num).find($('.email')).text();
+                   var no = $('#user'+num).find($('.no')).text();
+                   console.log(email); 
+                   sendInvitation(email);
+                   $('#button'+num).text('Sent Already');
+                });
+                }; 
+            });
+
+        </script>
+
+    </head>
+    <body>
+        
+           SEND INVITATION!!!! 
+
+    </body>
+</html>
